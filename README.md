@@ -74,11 +74,18 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 流程(後期有改良):
 https://easonwang.gitbook.io/blockchain/dapp/web3
-
-npm install -g create-react-app
-npm i web3
-npm start
+https://chinese.freecodecamp.org/news/portfolio-app-using-react/
 
 node 16.31.1
 web3 1.6.1
+
+npm install -g create-react-app
+npm i web3
+npm i gh-pages
+npm start
+
+部屬上gitpage
+npm run deploy
+
+
 
