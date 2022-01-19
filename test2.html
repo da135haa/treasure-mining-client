@@ -1,0 +1,56 @@
+<html>
+
+<head>
+<script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</head>
+<body>
+<script>
+var web3;
+
+$(document).ready( function(){
+    $('body').css('background','red');
+
+
+    test();
+    //getUserAsync('yourUsernameHere').then(data => console.log(data)); 
+    // const accounts = await web3.eth.getAccounts();
+    // console.log(accounts[0]);
+
+});
+
+async function getUserAsync(name) 
+{
+  let response = await fetch(`https://api.github.com/users/${name}`);
+  let data = await response.json()
+  return data;
+}
+
+async function test() 
+{   
+    if (window.ethereum) {
+      web3 = new Web3(window.ethereum);
+    }else{
+      //當下沒有就指定特定網域
+      web3 = new Web3(new Web3.providers.HttpProvider('https://ropsten.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161'));
+    }
+    web3.eth.getBlockNumber(function (error, result) {
+        console.log(result);
+    })
+
+    //console.log(web3);
+    const accounts = await web3.eth.getAccounts();
+    console.log("accounts:"+accounts[0]);
+
+    var account0;
+   web3.eth.getAccounts().then(function(result){
+     account0 = result[0];
+     console.log("accounts2:"+account0);
+   })
+   console.log(web3.eth.accounts[0]);
+
+}
+
+</script>
+</body> 
+</html> 
